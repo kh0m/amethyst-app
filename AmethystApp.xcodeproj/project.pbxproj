@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4128C031BBC4DC4002B0D70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4128C021BBC4DC4002B0D70 /* AppDelegate.swift */; };
+		D4128C051BBC4DC4002B0D70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4128C041BBC4DC4002B0D70 /* ViewController.swift */; };
+		D4128C081BBC4DC4002B0D70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4128C061BBC4DC4002B0D70 /* Main.storyboard */; };
+		D4128C0B1BBC4DC4002B0D70 /* AmethystApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4128C091BBC4DC4002B0D70 /* AmethystApp.xcdatamodeld */; };
+		D4128C0D1BBC4DC4002B0D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4128C0C1BBC4DC4002B0D70 /* Assets.xcassets */; };
+		D4128C101BBC4DC4002B0D70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4128C0E1BBC4DC4002B0D70 /* LaunchScreen.storyboard */; };
+		D4128C1B1BBC4DC4002B0D70 /* AmethystAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4128C1A1BBC4DC4002B0D70 /* AmethystAppTests.swift */; };
+		D4128C261BBC4DC4002B0D70 /* AmethystAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4128C251BBC4DC4002B0D70 /* AmethystAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4128C171BBC4DC4002B0D70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4128BF71BBC4DC4002B0D70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4128BFE1BBC4DC4002B0D70;
+			remoteInfo = AmethystApp;
+		};
+		D4128C221BBC4DC4002B0D70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4128BF71BBC4DC4002B0D70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4128BFE1BBC4DC4002B0D70;
+			remoteInfo = AmethystApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D4128BFF1BBC4DC4002B0D70 /* AmethystApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmethystApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4128C021BBC4DC4002B0D70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4128C041BBC4DC4002B0D70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4128C071BBC4DC4002B0D70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4128C0A1BBC4DC4002B0D70 /* AmethystApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AmethystApp.xcdatamodel; sourceTree = "<group>"; };
+		D4128C0C1BBC4DC4002B0D70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4128C0F1BBC4DC4002B0D70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D4128C111BBC4DC4002B0D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4128C161BBC4DC4002B0D70 /* AmethystAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmethystAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4128C1A1BBC4DC4002B0D70 /* AmethystAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmethystAppTests.swift; sourceTree = "<group>"; };
+		D4128C1C1BBC4DC4002B0D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4128C211BBC4DC4002B0D70 /* AmethystAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmethystAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4128C251BBC4DC4002B0D70 /* AmethystAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmethystAppUITests.swift; sourceTree = "<group>"; };
+		D4128C271BBC4DC4002B0D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4128BFC1BBC4DC4002B0D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4128C131BBC4DC4002B0D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4128C1E1BBC4DC4002B0D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4128BF61BBC4DC4002B0D70 = {
+			isa = PBXGroup;
+			children = (
+				D4128C011BBC4DC4002B0D70 /* AmethystApp */,
+				D4128C191BBC4DC4002B0D70 /* AmethystAppTests */,
+				D4128C241BBC4DC4002B0D70 /* AmethystAppUITests */,
+				D4128C001BBC4DC4002B0D70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4128C001BBC4DC4002B0D70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4128BFF1BBC4DC4002B0D70 /* AmethystApp.app */,
+				D4128C161BBC4DC4002B0D70 /* AmethystAppTests.xctest */,
+				D4128C211BBC4DC4002B0D70 /* AmethystAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4128C011BBC4DC4002B0D70 /* AmethystApp */ = {
+			isa = PBXGroup;
+			children = (
+				D4128C021BBC4DC4002B0D70 /* AppDelegate.swift */,
+				D4128C041BBC4DC4002B0D70 /* ViewController.swift */,
+				D4128C061BBC4DC4002B0D70 /* Main.storyboard */,
+				D4128C0C1BBC4DC4002B0D70 /* Assets.xcassets */,
+				D4128C0E1BBC4DC4002B0D70 /* LaunchScreen.storyboard */,
+				D4128C111BBC4DC4002B0D70 /* Info.plist */,
+				D4128C091BBC4DC4002B0D70 /* AmethystApp.xcdatamodeld */,
+			);
+			path = AmethystApp;
+			sourceTree = "<group>";
+		};
+		D4128C191BBC4DC4002B0D70 /* AmethystAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4128C1A1BBC4DC4002B0D70 /* AmethystAppTests.swift */,
+				D4128C1C1BBC4DC4002B0D70 /* Info.plist */,
+			);
+			path = AmethystAppTests;
+			sourceTree = "<group>";
+		};
+		D4128C241BBC4DC4002B0D70 /* AmethystAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D4128C251BBC4DC4002B0D70 /* AmethystAppUITests.swift */,
+				D4128C271BBC4DC4002B0D70 /* Info.plist */,
+			);
+			path = AmethystAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4128BFE1BBC4DC4002B0D70 /* AmethystApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4128C2A1BBC4DC4002B0D70 /* Build configuration list for PBXNativeTarget "AmethystApp" */;
+			buildPhases = (
+				D4128BFB1BBC4DC4002B0D70 /* Sources */,
+				D4128BFC1BBC4DC4002B0D70 /* Frameworks */,
+				D4128BFD1BBC4DC4002B0D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmethystApp;
+			productName = AmethystApp;
+			productReference = D4128BFF1BBC4DC4002B0D70 /* AmethystApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4128C151BBC4DC4002B0D70 /* AmethystAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4128C2D1BBC4DC4002B0D70 /* Build configuration list for PBXNativeTarget "AmethystAppTests" */;
+			buildPhases = (
+				D4128C121BBC4DC4002B0D70 /* Sources */,
+				D4128C131BBC4DC4002B0D70 /* Frameworks */,
+				D4128C141BBC4DC4002B0D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4128C181BBC4DC4002B0D70 /* PBXTargetDependency */,
+			);
+			name = AmethystAppTests;
+			productName = AmethystAppTests;
+			productReference = D4128C161BBC4DC4002B0D70 /* AmethystAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D4128C201BBC4DC4002B0D70 /* AmethystAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4128C301BBC4DC4002B0D70 /* Build configuration list for PBXNativeTarget "AmethystAppUITests" */;
+			buildPhases = (
+				D4128C1D1BBC4DC4002B0D70 /* Sources */,
+				D4128C1E1BBC4DC4002B0D70 /* Frameworks */,
+				D4128C1F1BBC4DC4002B0D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4128C231BBC4DC4002B0D70 /* PBXTargetDependency */,
+			);
+			name = AmethystAppUITests;
+			productName = AmethystAppUITests;
+			productReference = D4128C211BBC4DC4002B0D70 /* AmethystAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4128BF71BBC4DC4002B0D70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Hom, Kenneth";
+				TargetAttributes = {
+					D4128BFE1BBC4DC4002B0D70 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					D4128C151BBC4DC4002B0D70 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = D4128BFE1BBC4DC4002B0D70;
+					};
+					D4128C201BBC4DC4002B0D70 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = D4128BFE1BBC4DC4002B0D70;
+					};
+				};
+			};
+			buildConfigurationList = D4128BFA1BBC4DC4002B0D70 /* Build configuration list for PBXProject "AmethystApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4128BF61BBC4DC4002B0D70;
+			productRefGroup = D4128C001BBC4DC4002B0D70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4128BFE1BBC4DC4002B0D70 /* AmethystApp */,
+				D4128C151BBC4DC4002B0D70 /* AmethystAppTests */,
+				D4128C201BBC4DC4002B0D70 /* AmethystAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4128BFD1BBC4DC4002B0D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4128C101BBC4DC4002B0D70 /* LaunchScreen.storyboard in Resources */,
+				D4128C0D1BBC4DC4002B0D70 /* Assets.xcassets in Resources */,
+				D4128C081BBC4DC4002B0D70 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4128C141BBC4DC4002B0D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4128C1F1BBC4DC4002B0D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4128BFB1BBC4DC4002B0D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4128C051BBC4DC4002B0D70 /* ViewController.swift in Sources */,
+				D4128C0B1BBC4DC4002B0D70 /* AmethystApp.xcdatamodeld in Sources */,
+				D4128C031BBC4DC4002B0D70 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4128C121BBC4DC4002B0D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4128C1B1BBC4DC4002B0D70 /* AmethystAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4128C1D1BBC4DC4002B0D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4128C261BBC4DC4002B0D70 /* AmethystAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4128C181BBC4DC4002B0D70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4128BFE1BBC4DC4002B0D70 /* AmethystApp */;
+			targetProxy = D4128C171BBC4DC4002B0D70 /* PBXContainerItemProxy */;
+		};
+		D4128C231BBC4DC4002B0D70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4128BFE1BBC4DC4002B0D70 /* AmethystApp */;
+			targetProxy = D4128C221BBC4DC4002B0D70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4128C061BBC4DC4002B0D70 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4128C071BBC4DC4002B0D70 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D4128C0E1BBC4DC4002B0D70 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4128C0F1BBC4DC4002B0D70 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4128C281BBC4DC4002B0D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4128C291BBC4DC4002B0D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4128C2B1BBC4DC4002B0D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AmethystApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinsonault.AmethystApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D4128C2C1BBC4DC4002B0D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AmethystApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinsonault.AmethystApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D4128C2E1BBC4DC4002B0D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AmethystAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinsonault.AmethystAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmethystApp.app/AmethystApp";
+			};
+			name = Debug;
+		};
+		D4128C2F1BBC4DC4002B0D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AmethystAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinsonault.AmethystAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmethystApp.app/AmethystApp";
+			};
+			name = Release;
+		};
+		D4128C311BBC4DC4002B0D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AmethystAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinsonault.AmethystAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AmethystApp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D4128C321BBC4DC4002B0D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AmethystAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinsonault.AmethystAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AmethystApp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4128BFA1BBC4DC4002B0D70 /* Build configuration list for PBXProject "AmethystApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4128C281BBC4DC4002B0D70 /* Debug */,
+				D4128C291BBC4DC4002B0D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4128C2A1BBC4DC4002B0D70 /* Build configuration list for PBXNativeTarget "AmethystApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4128C2B1BBC4DC4002B0D70 /* Debug */,
+				D4128C2C1BBC4DC4002B0D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D4128C2D1BBC4DC4002B0D70 /* Build configuration list for PBXNativeTarget "AmethystAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4128C2E1BBC4DC4002B0D70 /* Debug */,
+				D4128C2F1BBC4DC4002B0D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D4128C301BBC4DC4002B0D70 /* Build configuration list for PBXNativeTarget "AmethystAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4128C311BBC4DC4002B0D70 /* Debug */,
+				D4128C321BBC4DC4002B0D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D4128C091BBC4DC4002B0D70 /* AmethystApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D4128C0A1BBC4DC4002B0D70 /* AmethystApp.xcdatamodel */,
+			);
+			currentVersion = D4128C0A1BBC4DC4002B0D70 /* AmethystApp.xcdatamodel */;
+			path = AmethystApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D4128BF71BBC4DC4002B0D70 /* Project object */;
+}
