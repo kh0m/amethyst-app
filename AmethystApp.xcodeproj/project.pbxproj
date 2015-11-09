@@ -109,13 +109,13 @@
 		D4128C011BBC4DC4002B0D70 /* AmethystApp */ = {
 			isa = PBXGroup;
 			children = (
-				D4C7F6071BDEBD55008E34D3 /* CoursesViewController.swift */,
 				D40E462F1BBDBEBF00430BDB /* Course+CoreDataProperties.swift */,
 				D40E46301BBDBEBF00430BDB /* Course.swift */,
 				D40E46311BBDBEBF00430BDB /* Client+CoreDataProperties.swift */,
 				D40E46321BBDBEBF00430BDB /* Client.swift */,
 				D4128C021BBC4DC4002B0D70 /* AppDelegate.swift */,
 				D4128C041BBC4DC4002B0D70 /* ViewController.swift */,
+				D4C7F6071BDEBD55008E34D3 /* CoursesViewController.swift */,
 				D4128C061BBC4DC4002B0D70 /* Main.storyboard */,
 				D4128C331BBC5543002B0D70 /* AmethystApp.xcdatamodeld */,
 				D4128C0C1BBC4DC4002B0D70 /* Assets.xcassets */,

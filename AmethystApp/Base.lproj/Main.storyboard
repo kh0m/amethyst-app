@@ -22,7 +22,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ZbT-Gq-4O9" detailTextLabel="GLT-wo-Uct" style="IBUITableViewCellStyleSubtitle" id="HSm-u9-Gg7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="ZbT-Gq-4O9" detailTextLabel="GLT-wo-Uct" style="IBUITableViewCellStyleSubtitle" id="HSm-u9-Gg7">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HSm-u9-Gg7" id="HuL-lK-etp">
@@ -50,7 +50,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <segue destination="Ziw-f5-vuC" kind="show" identifier="toCourses" id="uDG-Ye-6bG"/>
+                                            <segue destination="gIg-DY-VbM" kind="show" identifier="toCourses" id="pmp-yK-ed5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -101,7 +101,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xP8-50-scM" detailTextLabel="T4a-FM-ooJ" style="IBUITableViewCellStyleSubtitle" id="0KQ-xl-y2X">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="xP8-50-scM" detailTextLabel="T4a-FM-ooJ" style="IBUITableViewCellStyleSubtitle" id="0KQ-xl-y2X">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0KQ-xl-y2X" id="5r3-ey-xLm">
@@ -158,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmZ-4Q-lJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2687" y="211"/>
+            <point key="canvasLocation" x="1931" y="276"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OB9-aS-9NJ">
@@ -178,25 +178,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w94-ad-r0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="373" y="592"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ild-HD-fja">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ziw-f5-vuC" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N2z-cI-bd7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="gIg-DY-VbM" kind="relationship" relationship="rootViewController" id="XoV-hw-j5D"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SfI-b9-KKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1847" y="592"/>
         </scene>
     </scenes>
 </document>

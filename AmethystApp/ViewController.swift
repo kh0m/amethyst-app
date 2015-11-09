@@ -113,8 +113,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // MARK: UITableViewDelegate
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("toCourses", sender: self)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("toCourses", sender: clients[indexPath.row])
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toCourses" {
+            if let destinationVC = segue.destinationViewController as? CoursesViewController {
+                destinationVC.client = sender as? NSManagedObject
+            }
+        }
+    }
+    
 }
 
