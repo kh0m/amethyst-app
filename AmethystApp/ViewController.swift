@@ -35,11 +35,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         //3
         do {
-            let results =
-            try managedContext.executeFetchRequest(fetchRequest)
+            let results = try managedContext.executeFetchRequest(fetchRequest)
             clients = results as! [NSManagedObject]
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRowAtIndexPath(selectedIndexPath, animated: true)
         }
     }
     
@@ -49,16 +54,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+
+        let client = clients[indexPath.row] as! Client
         
-        let client = clients[indexPath.row]
+        cell.textLabel!.text = client.name
+        let courses = client.courses
+        cell.detailTextLabel?.text = String(courses!.count)
         
-        cell!.textLabel!.text = client.valueForKey("name") as? String
-        if let courses = client.valueForKey("courses"){
-            cell!.detailTextLabel?.text = "\(courses.count) Courses"
-        }
         
-        return cell!
+        return cell
     }
 
     override func didReceiveMemoryWarning() {

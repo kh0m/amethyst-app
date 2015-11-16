@@ -33,29 +33,16 @@ class CoursesViewController: UIViewController, UITableViewDataSource {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-//        // 1: Get managed object context via appDelegate
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let managedContext = appDelegate.managedObjectContext
-//        
-//        // 2: NSFetchRequest with NSEntityDescription
-//        let fetchRequest = NSFetchRequest(entityName: "Course")
-//        
-//        // 3: Add predicate
-//        let predicate = NSPredicate(format: "client == %@", client!)
-//        fetchRequest.predicate = predicate
-//        
-//        // 4: context executes the request
-//        do {
-//            try managedContext.executeFetchRequest(fetchRequest)
-//        } catch let error as NSError {
-//            print("Could not fetch \(error), \(error.userInfo)")
-//        }
-        
         let courses = client!.valueForKey("courses")
-        for course in courses as! NSSet{
+        for course in courses as! NSMutableSet{
             clientCourses.append(course as! NSManagedObject)
         }
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRowAtIndexPath(selectedIndexPath, animated: true)
+        }
     }
     
     
@@ -112,22 +99,25 @@ class CoursesViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let course = clientCourses[indexPath.row]
-        cell!.textLabel!.text = course.valueForKey("title") as? String
+        cell.textLabel!.text = course.valueForKey("title") as? String
         
-        return cell!
+        return cell
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("toWebView", sender: clientCourses[indexPath.row])
     }
-    */
+    
+    // MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toWebView" {
+            if let destinationVC = segue.destinationViewController as? WebViewController {
+                destinationVC.course = sender as? NSManagedObject
+            }
+        }
+    }
 
 }

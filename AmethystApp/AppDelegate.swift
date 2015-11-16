@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        preloadData()
+        
         return true
     }
 
@@ -106,6 +108,137 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    // MARK: - Parse CSV
+    // from http://www.appcoda.com/core-data-preload-sqlite-database/
+    
+    func parseCSV(contentsOfURL: NSURL, encoding: NSStringEncoding, error: NSErrorPointer) -> [(client:String, topic:String, title: String, link: String)]? {
+        // Load the CSV file and parse it
+        let delimiter = ","
+        var items:[(client:String, topic:String, title: String, link: String)]?
+        
+        if let data = NSData(contentsOfURL: contentsOfURL) {
+            if let content = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                
+                items = []
+                let lines:[String] = content.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet()) as [String]
+                
+                for line in lines {
+                    var values:[String] = []
+                    if line != "" {
+                        // For a line with double quotes
+                        // we use NSScanner to perform the parsing
+                        if line.rangeOfString("\"") != nil {
+                            var textToScan:String = line
+                            var value:NSString?
+                            var textScanner:NSScanner = NSScanner(string: textToScan)
+                            while textScanner.string != "" {
+                                
+                                if (textScanner.string as NSString).substringToIndex(1) == "\"" {
+                                    textScanner.scanLocation += 1
+                                    textScanner.scanUpToString("\"", intoString: &value)
+                                    textScanner.scanLocation += 1
+                                } else {
+                                    textScanner.scanUpToString(delimiter, intoString: &value)
+                                }
+                                
+                                // Store the value into the values array
+                                values.append(value as! String)
+                                
+                                // Retrieve the unscanned remainder of the string
+                                if textScanner.scanLocation < textScanner.string.characters.count {
+                                    textToScan = (textScanner.string as NSString).substringFromIndex(textScanner.scanLocation + 1)
+                                } else {
+                                    textToScan = ""
+                                }
+                                textScanner = NSScanner(string: textToScan)
+                            }
+                            
+                            // For a line without double quotes, we can simply separate the string
+                            // by using the delimiter (e.g. comma)
+                        } else  {
+                            values = line.componentsSeparatedByString(delimiter)
+                        }
+                        
+                        // Put the values into the tuple and add it to the items array
+                        let item = (client: values[0], topic: values[1], title: values[2], link: values[3])
+                        items?.append(item)
+                    }
+                }
+            }
+        } 
+        return items
+                
+        
+    } // end func
+    
+    
+    func preloadData () {
+        // Remove all the menu items before preloading
+        removeData()
+        
+        var error:NSError?
+        let remoteURL = NSURL(string: "http://testing.pinsonault.com/ken/eModuleLinks.csv")!
+        if let items = parseCSV(remoteURL, encoding: NSUTF8StringEncoding, error: &error) {
+            // Preload the items
+            let managedObjectContext = self.managedObjectContext
+            
+            for item in items {
+                //
+                
+                let course = NSEntityDescription.insertNewObjectForEntityForName("Course", inManagedObjectContext: managedObjectContext) as! Course
+                course.title = item.title
+                course.link = item.link
+                course.topic = item.topic
+                
+                let fetchRequest = NSFetchRequest(entityName: "Client")
+                let predicate = NSPredicate(format: "name == %@", item.client)
+                fetchRequest.predicate = predicate
+                
+                if(managedObjectContext.countForFetchRequest(fetchRequest, error: nil) == 0){
+                    let client = NSEntityDescription.insertNewObjectForEntityForName("Client", inManagedObjectContext: managedObjectContext) as! Client
+                    client.name = item.client
+                    client.courses?.addObject(course)
+                } else {
+                    do {
+                        let results = try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+                        let client = results.first
+                        
+                        course.setValue(client, forKey: "client")
+                        
+                    } catch {
+                        print("fetching error.")
+                    }
+                }
+                //
+                
+                do {
+                    try managedObjectContext.save()
+                } catch let error as NSError {
+                    print("insert error: \(error.localizedDescription)")
+                }
 
+            }
+        }
+    }
+    
+    func removeData() {
+        // Remove the existing items
+        let managedObjectContext = self.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "Client")
+        do {
+            let clients = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Client]
+            for client in clients {
+                managedObjectContext.deleteObject(client)
+            }
+        }
+        catch let error as NSError{
+            print("error: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+    
 }
 

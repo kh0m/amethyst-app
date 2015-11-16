@@ -2,7 +2,7 @@
 //  Course+CoreDataProperties.swift
 //  AmethystApp
 //
-//  Created by Hom, Kenneth on 10/1/15.
+//  Created by Hom, Kenneth on 11/10/15.
 //  Copyright © 2015 Hom, Kenneth. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,9 +14,9 @@ import CoreData
 
 extension Course {
 
-    @NSManaged var id: NSNumber?
-    @NSManaged var text: String?
     @NSManaged var title: String?
-    @NSManaged var client: NSManagedObject?
+    @NSManaged var topic: String?
+    @NSManaged var link: String?
+    @NSManaged var client: Client?
 
 }

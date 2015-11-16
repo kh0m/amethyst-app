@@ -19,6 +19,7 @@
 		D4128C1B1BBC4DC4002B0D70 /* AmethystAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4128C1A1BBC4DC4002B0D70 /* AmethystAppTests.swift */; };
 		D4128C261BBC4DC4002B0D70 /* AmethystAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4128C251BBC4DC4002B0D70 /* AmethystAppUITests.swift */; };
 		D4128C351BBC5543002B0D70 /* AmethystApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4128C331BBC5543002B0D70 /* AmethystApp.xcdatamodeld */; };
+		D48B0DB81BFA2828003531DC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B0DB71BFA2828003531DC /* WebViewController.swift */; };
 		D4C7F6081BDEBD55008E34D3 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7F6071BDEBD55008E34D3 /* CoursesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		D4128C251BBC4DC4002B0D70 /* AmethystAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmethystAppUITests.swift; sourceTree = "<group>"; };
 		D4128C271BBC4DC4002B0D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4128C341BBC5543002B0D70 /* AmethystApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AmethystApp.xcdatamodel; sourceTree = "<group>"; };
+		D48B0DB71BFA2828003531DC /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D4C7F6071BDEBD55008E34D3 /* CoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				D4128C021BBC4DC4002B0D70 /* AppDelegate.swift */,
 				D4128C041BBC4DC4002B0D70 /* ViewController.swift */,
 				D4C7F6071BDEBD55008E34D3 /* CoursesViewController.swift */,
+				D48B0DB71BFA2828003531DC /* WebViewController.swift */,
 				D4128C061BBC4DC4002B0D70 /* Main.storyboard */,
 				D4128C331BBC5543002B0D70 /* AmethystApp.xcdatamodeld */,
 				D4128C0C1BBC4DC4002B0D70 /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D40E46341BBDBEBF00430BDB /* Course.swift in Sources */,
+				D48B0DB81BFA2828003531DC /* WebViewController.swift in Sources */,
 				D4C7F6081BDEBD55008E34D3 /* CoursesViewController.swift in Sources */,
 				D4128C051BBC4DC4002B0D70 /* ViewController.swift in Sources */,
 				D40E46351BBDBEBF00430BDB /* Client+CoreDataProperties.swift in Sources */,
