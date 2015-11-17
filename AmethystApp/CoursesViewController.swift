@@ -34,6 +34,7 @@ class CoursesViewController: UIViewController, UITableViewDataSource, UIPopoverP
         super.viewWillAppear(animated)
         
         let courses = client!.valueForKey("courses")
+        clientCourses.removeAll()
         for course in courses as! NSMutableSet{
             clientCourses.append(course as! NSManagedObject)
         }
