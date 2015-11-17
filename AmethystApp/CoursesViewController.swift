@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CoursesViewController: UIViewController, UITableViewDataSource {
+class CoursesViewController: UIViewController, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     var clientCourses = [NSManagedObject]()
     var client: NSManagedObject?
@@ -37,6 +37,7 @@ class CoursesViewController: UIViewController, UITableViewDataSource {
         for course in courses as! NSMutableSet{
             clientCourses.append(course as! NSManagedObject)
         }
+        self.title = client!.valueForKey("name") as? String
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -93,6 +94,10 @@ class CoursesViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+    
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return clientCourses.count
@@ -116,6 +121,12 @@ class CoursesViewController: UIViewController, UITableViewDataSource {
         if segue.identifier == "toWebView" {
             if let destinationVC = segue.destinationViewController as? WebViewController {
                 destinationVC.course = sender as? NSManagedObject
+            }
+        } else if (segue.identifier == "toDetailsPopover") {
+            if let destinationVC = segue.destinationViewController as? PopoverViewController {
+                destinationVC.labelText = "Total number of courses: \(clientCourses.count)"
+                destinationVC.popoverPresentationController!.delegate = self
+                destinationVC.modalPresentationStyle = UIModalPresentationStyle.Popover
             }
         }
     }

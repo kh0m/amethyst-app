@@ -5,6 +5,53 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Popover View Controller-->
+        <scene sceneID="PfL-ky-Bvw">
+            <objects>
+                <viewController id="33k-kN-9IA" customClass="PopoverViewController" customModule="AmethystApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rJT-KT-VHJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="q8a-4h-jeL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MyM-Eb-D5E">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGN-PY-TjC">
+                                <rect key="frame" x="119" y="39" width="62" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fGN-PY-TjC" firstAttribute="centerX" secondItem="MyM-Eb-D5E" secondAttribute="centerX" id="AQ6-8M-DYS"/>
+                            <constraint firstItem="fGN-PY-TjC" firstAttribute="centerY" secondItem="MyM-Eb-D5E" secondAttribute="centerY" id="NUU-tP-hjZ"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="KFg-9m-wSl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="4N3-rn-idA">
+                            <connections>
+                                <action selector="dismissPopover:" destination="33k-kN-9IA" id="7MD-Aq-1Py"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="100"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="100"/>
+                    <connections>
+                        <outlet property="clientNumberLabel" destination="fGN-PY-TjC" id="3I5-Rp-5si"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FXc-0U-Mdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1913" y="-437"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -70,9 +117,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6jh-rl-VdH">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="SlJ-Sy-A8K">
+                        <barButtonItem key="rightBarButtonItem" title="Details" id="SlJ-Sy-A8K">
                             <connections>
-                                <action selector="addClient:" destination="BYZ-38-t0r" id="iuA-ZU-7Vu"/>
+                                <action selector="showDetails:" destination="BYZ-38-t0r" id="TzO-zj-Gxg"/>
+                                <segue destination="33k-kN-9IA" kind="popoverPresentation" identifier="toDetailsPopover" popoverAnchorBarButtonItem="SlJ-Sy-A8K" id="0YX-p9-RpS">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -149,9 +199,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eqT-XQ-8Sc">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="2FQ-2c-LVS">
+                        <barButtonItem key="rightBarButtonItem" title="Details" id="2FQ-2c-LVS">
                             <connections>
                                 <action selector="addCourse:" destination="gIg-DY-VbM" id="GSe-Vj-nzC"/>
+                                <segue destination="33k-kN-9IA" kind="popoverPresentation" identifier="toDetailsPopover" popoverAnchorBarButtonItem="2FQ-2c-LVS" id="UMn-Fh-2vM">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -218,4 +271,7 @@
             <point key="canvasLocation" x="373" y="592"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0YX-p9-RpS"/>
+    </inferredMetricsTieBreakers>
 </document>

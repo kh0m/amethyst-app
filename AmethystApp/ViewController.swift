@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 // Add UITableViewDataSource and UITableViewDelegate to class declaration
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate {
     
     var clients = [NSManagedObject]()
     
@@ -71,28 +71,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func showDetails(sender: UIBarButtonItem) {}
     
-    @IBAction func addClient(sender: AnyObject) {
-        let alert = UIAlertController(title: "New Client", message: "Add a Client", preferredStyle: .Alert)
-        
-        let saveAction = UIAlertAction(title: "Save",
-            style: .Default,
-            handler: { (action: UIAlertAction) -> Void in
-                let textField = alert.textFields!.first
-                self.saveClient(textField!.text!)
-                self.tableView.reloadData()
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-            style: .Default) { (action: UIAlertAction) -> Void in }
-        
-        alert.addTextFieldWithConfigurationHandler { (textfield: UITextField) -> Void in }
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        presentViewController(alert, animated: true, completion: nil)
-    }
     
     func saveClient(name: String) {
         //1
@@ -117,15 +97,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+    
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("toCourses", sender: clients[indexPath.row])
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "toCourses" {
+        if (segue.identifier == "toCourses") {
             if let destinationVC = segue.destinationViewController as? CoursesViewController {
                 destinationVC.client = sender as? NSManagedObject
+            }
+        } else if (segue.identifier == "toDetailsPopover") {
+            if let destinationVC = segue.destinationViewController as? PopoverViewController {
+                destinationVC.modalPresentationStyle = UIModalPresentationStyle.Popover
+                destinationVC.popoverPresentationController!.delegate = self
+                destinationVC.labelText = "Total number of clients: \(clients.count)"
             }
         }
     }
