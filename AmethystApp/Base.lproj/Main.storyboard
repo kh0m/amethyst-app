@@ -21,7 +21,7 @@
                                 <rect key="frame" x="119" y="39" width="62" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -81,7 +81,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TmU-7F-fnD">
@@ -89,7 +89,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -118,6 +118,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6jh-rl-VdH">
                         <barButtonItem key="rightBarButtonItem" title="Details" id="SlJ-Sy-A8K">
+                            <color key="tintColor" red="0.35686274509803922" green="0.090196078431372548" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showDetails:" destination="BYZ-38-t0r" id="TzO-zj-Gxg"/>
                                 <segue destination="33k-kN-9IA" kind="popoverPresentation" identifier="toDetailsPopover" popoverAnchorBarButtonItem="SlJ-Sy-A8K" id="0YX-p9-RpS">
@@ -200,6 +201,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="eqT-XQ-8Sc">
                         <barButtonItem key="rightBarButtonItem" title="Details" id="2FQ-2c-LVS">
+                            <color key="tintColor" red="0.35686274509803922" green="0.090196078431372548" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addCourse:" destination="gIg-DY-VbM" id="GSe-Vj-nzC"/>
                                 <segue destination="33k-kN-9IA" kind="popoverPresentation" identifier="toDetailsPopover" popoverAnchorBarButtonItem="2FQ-2c-LVS" id="UMn-Fh-2vM">
@@ -249,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ie0-Gk-2Sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2697" y="337"/>
+            <point key="canvasLocation" x="2685" y="335"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OB9-aS-9NJ">
@@ -274,4 +276,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="0YX-p9-RpS"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.35686274509803922" green="0.090196078431372548" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
 </document>

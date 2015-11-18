@@ -13,7 +13,9 @@ class WebViewController: UIViewController {
     
     var course: NSManagedObject?
     @IBOutlet weak var courseView: UIWebView!
-
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,12 +25,12 @@ class WebViewController: UIViewController {
         let requestObject = NSURLRequest(URL: url!)
         courseView.loadRequest(requestObject)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     /*
     // MARK: - Navigation
 
