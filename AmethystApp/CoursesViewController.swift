@@ -13,6 +13,7 @@ class CoursesViewController: UIViewController, UITableViewDataSource, UIPopoverP
     
     var clientCourses = [NSManagedObject]()
     var client: NSManagedObject?
+    lazy var refresher = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -23,6 +24,16 @@ class CoursesViewController: UIViewController, UITableViewDataSource, UIPopoverP
         title = "Courses"
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         print(client)
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        refresher.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refresher)
+    }
+    
+    func refresh(sender: AnyObject){
+        tableView.reloadData()
+        refresher.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {

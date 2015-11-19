@@ -13,14 +13,22 @@ import CoreData
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate {
     
     var clients = [NSManagedObject]()
-    
     @IBOutlet weak var tableView: UITableView!
-    
+    lazy var refresher = UIRefreshControl()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         title = "Clients"
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        refresher.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refresher)
+    }
+    
+    func refresh(sender: AnyObject){
+        tableView.reloadData()
+        refresher.endRefreshing()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -71,8 +79,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Methods
+    
     @IBAction func showDetails(sender: UIBarButtonItem) {}
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
     
     func saveClient(name: String) {
         //1
@@ -97,15 +110,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
-    }
-    
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("toCourses", sender: clients[indexPath.row])
     }
     
+    
+    // MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toCourses") {
             if let destinationVC = segue.destinationViewController as? CoursesViewController {
