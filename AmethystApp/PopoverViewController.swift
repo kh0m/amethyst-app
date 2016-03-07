@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import SimpleKeychain
 
 class PopoverViewController: UIViewController {
     
     var labelText: String?
     @IBOutlet weak var clientNumberLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
 
     @IBAction func dismissPopover(sender: AnyObject) {
         self.dismissPopover(self)
@@ -21,6 +24,12 @@ class PopoverViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         clientNumberLabel.text = labelText
+        
+        // Get user info from profile
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        if let data = keychain.dataForKey("profile"), let profile = NSKeyedUnarchiver.unarchiveObjectWithData(data) {
+            self.nameLabel.text = "Welcome, \(profile.name)!"
+        }
     }
 
     override func didReceiveMemoryWarning() {

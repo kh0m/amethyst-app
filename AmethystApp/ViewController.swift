@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Lock
+import SimpleKeychain
 
 // Add UITableViewDataSource and UITableViewDelegate to class declaration
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate {
@@ -15,9 +17,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var clients = [NSManagedObject]()
     @IBOutlet weak var tableView: UITableView!
     lazy var refresher = UIRefreshControl()
-        
+    
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: Auth0
+        // check for non-expired token
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        
+        if let token = keychain.stringForKey("refresh_token") {
+            let client = A0Lock.sharedLock().apiClient()
+            client.fetchNewIdTokenWithRefreshToken(token,
+                parameters: nil,
+                
+                success: { token in
+                    keychain.setString(token.idToken, forKey: "id_token")
+                    // Just got a new id_token!
+                },
+                
+                failure: { error in
+                    keychain.clearAll() // Cleaning stored values since they are no longer valid
+                    
+                    // id_token is no longer valid. ask the user to login again!
+                    self.requestLogin()
+                }
+            )
+        } else {
+            self.requestLogin()
+        }
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         title = "Clients"
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -85,6 +116,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
+    }
+    
+    
+    func requestLogin() {
+        let controller = A0Lock.sharedLock().newLockViewController()
+        controller.closable = false
+        controller.onAuthenticationBlock = { (profile, token) in
+            
+            guard let profile = profile, let token = token else {
+                return // it's a sign up
+            }
+            
+            // save tokens and profile
+            let keychain = A0SimpleKeychain(service: "Auth0")
+            keychain.setString(token.idToken, forKey: "id_token")
+            if let refreshToken = token.refreshToken {
+                keychain.setString(refreshToken, forKey: "refresh_token")
+            }
+            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+            
+            // dismiss lock
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     func saveClient(name: String) {
