@@ -1,5 +1,5 @@
 //
-//  Course+CoreDataProperties.swift
+//  User+CoreDataProperties.swift
 //  AmethystApp
 //
 //  Created by Hom, Kenneth on 3/11/16.
@@ -12,11 +12,10 @@
 import Foundation
 import CoreData
 
-extension Course {
+extension User {
 
-    @NSManaged var link: String?
-    @NSManaged var title: String?
-    @NSManaged var topic: String?
-    @NSManaged var user: User?
+    @NSManaged var email: String?
+    @NSManaged var role: String?
+    @NSManaged var course: Course?
 
 }

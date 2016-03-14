@@ -15,6 +15,9 @@ class PopoverViewController: UIViewController {
     @IBOutlet weak var clientNumberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBAction func Logout(sender: UIButton) {
+        print("yo gianni")
+    }
 
     @IBAction func dismissPopover(sender: AnyObject) {
         self.dismissPopover(self)
