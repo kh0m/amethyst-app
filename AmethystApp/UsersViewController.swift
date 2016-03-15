@@ -120,87 +120,52 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Remove all the menu items before preloading
         removeData()
         
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-
-        
-        var error: NSError?
-        let requestURL = NSURL(string: "http://localhost:3000/users")!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) {
-            (data, response, error) -> Void in
-            
-            let httpResponse = response as! NSHTTPURLResponse
-            let statusCode = httpResponse.statusCode
-            
-            if (statusCode == 200) {
-                do {
-                    print("get data")
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as! NSArray
-                    
-                    for item in json {
-                        print("\(item)")
-                        // save users
-                        let user = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedObjectContext) as! User
-                        user.email = item["email"] as? String
-                        user.role = item["role"] as? String
-                    }
-                } catch {
-                    print("Error with Json: \(error)")
-                    
-                }
-                
-            }
-            
-        }
-        
-        task.resume()
         
         ////////////////////////
         
-        //        var error:NSError?
-        //        let remoteURL = NSURL(string: "http://testing.pinsonault.com/ken/eModuleLinks.csv")!
-        //        if let items = parseCSV(remoteURL, encoding: NSUTF8StringEncoding, error: &error) {
-        //            // Preload the items
-        //            let managedObjectContext = self.managedObjectContext
-        //
-        //            for item in items {
-        //                //
-        //
-        //                let course = NSEntityDescription.insertNewObjectForEntityForName("Course", inManagedObjectContext: managedObjectContext) as! Course
-        //                course.title = item.title
-        //                course.link = item.link
-        //                course.topic = item.topic
-        //
-        //                let fetchRequest = NSFetchRequest(entityName: "Client")
-        //                let predicate = NSPredicate(format: "name == %@", item.client)
-        //                fetchRequest.predicate = predicate
-        //
-        //                if(managedObjectContext.countForFetchRequest(fetchRequest, error: nil) == 0){
-        //                    let client = NSEntityDescription.insertNewObjectForEntityForName("Client", inManagedObjectContext: managedObjectContext) as! Client
-        //                    client.name = item.client
-        //                    client.courses?.addObject(course)
-        //                } else {
-        //                    do {
-        //                        let results = try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
-        //                        let client = results.first
-        //
-        //                        course.setValue(client, forKey: "client")
-        //
-        //                    } catch {
-        //                        print("fetching error.")
-        //                    }
-        //                }
-        //                //
-        //
-        //                do {
-        //                    try managedObjectContext.save()
-        //                } catch let error as NSError {
-        //                    print("insert error: \(error.localizedDescription)")
-        //                }
-        //
-        //            }
-        //        }
+//                var error:NSError?
+//                let remoteURL = NSURL(string: "http://testing.pinsonault.com/ken/eModuleLinks.csv")!
+//                if let items = parseCSV(remoteURL, encoding: NSUTF8StringEncoding, error: &error) {
+//                    // Preload the items
+//                    let managedObjectContext = self.managedObjectContext
+//        
+//                    for item in items {
+//                        //
+//        
+//                        let course = NSEntityDescription.insertNewObjectForEntityForName("Course", inManagedObjectContext: managedObjectContext) as! Course
+//                        course.title = item.title
+//                        course.link = item.link
+//                        course.topic = item.topic
+//        
+//                        let fetchRequest = NSFetchRequest(entityName: "Client")
+//                        let predicate = NSPredicate(format: "name == %@", item.client)
+//                        fetchRequest.predicate = predicate
+//        
+//                        if(managedObjectContext.countForFetchRequest(fetchRequest, error: nil) == 0){
+//                            let client = NSEntityDescription.insertNewObjectForEntityForName("Client", inManagedObjectContext: managedObjectContext) as! Client
+//                            client.name = item.client
+//                            client.courses?.addObject(course)
+//                        } else {
+//                            do {
+//                                let results = try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+//                                let client = results.first
+//        
+//                                course.setValue(client, forKey: "client")
+//        
+//                            } catch {
+//                                print("fetching error.")
+//                            }
+//                        }
+//                        //
+//        
+//                        do {
+//                            try managedObjectContext.save()
+//                        } catch let error as NSError {
+//                            print("insert error: \(error.localizedDescription)")
+//                        }
+//        
+//                    }
+//                }
     }
     
     func removeData() {

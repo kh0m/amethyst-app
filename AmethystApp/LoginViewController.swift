@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import Lock
 import SimpleKeychain
 
@@ -30,7 +31,13 @@ class LoginViewController: UIViewController {
                 success: { token in
                     keychain.setString(token.idToken, forKey: "id_token")
                     // Just got a new id_token!
-                    // self.preloadData()
+                    
+                    // Get user info from profile
+                    let keychain = A0SimpleKeychain(service: "Auth0")
+                    if let data = keychain.dataForKey("profile"), let profile = NSKeyedUnarchiver.unarchiveObjectWithData(data) {
+                        print("\(profile.identities[0].userId)")
+                        loadUserFrom(profile.identities[0].userId)
+                    }
                 },
                 
                 failure: { error in
@@ -67,6 +74,42 @@ class LoginViewController: UIViewController {
 
 }
 
+
+func loadUserFrom(userId: String) {
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    let requestURL = NSURL(string: "http://localhost:3000/user_from/\(userId)")!
+    let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+    let session = NSURLSession.sharedSession()
+    let task = session.dataTaskWithRequest(urlRequest) {
+        (data, response, error) -> Void in
+        
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode == 200) {
+            do {
+                print("get data")
+                let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
+                
+                    print("json: \(json)")
+                    // save users
+                    let user = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedObjectContext) as! User
+                    user.email = json["email"] as? String
+                    user.role = json["role"] as? String
+
+            } catch {
+                print("Error with Json: \(error)")
+
+            }
+            
+        }
+    }
+    
+    task.resume()
+
+}
+
 extension UIViewController {
     func requestLogin() {
         let controller = A0Lock.sharedLock().newLockViewController()
@@ -93,7 +136,7 @@ extension UIViewController {
         // customize theme
         let DRGTheme = A0Theme()
         
-        DRGTheme.registerImageWithName("DRG_logo", bundle: NSBundle.mainBundle(), forKey: "A0ThemeIconImageName")
+        DRGTheme.registerImageWithName("DRG_icon", bundle: NSBundle.mainBundle(), forKey: "A0ThemeIconImageName")
         DRGTheme.registerColor(UIColor.clearColor(), forKey:"A0ThemeIconBackgroundColor")
         
         DRGTheme.registerColor(self.view.tintColor, forKey:"A0ThemePrimaryButtonNormalColor")
